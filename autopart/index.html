@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="AutoParts Pro – Premium auto parts for Carbon Fibre, Plastic Repair, Engine & Brake systems. Shop the best automotive components online in India."/>
+  <title>AutoParts Pro – Premium Auto Parts India</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader-inner">
+    <div class="loader-ring"></div>
+    <div class="loader-logo">AutoParts Pro</div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top" id="main-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="brand-icon"><i class="fas fa-bolt"></i></div>
+      Auto<span class="brand-pro">Parts Pro</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <i class="fas fa-bars" style="color:var(--text-muted)"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <button class="nav-icon-btn" onclick="toggleTheme()" title="Toggle theme">
+          <i class="fas fa-sun theme-icon"></i>
+        </button>
+        <a href="cart.html" class="nav-icon-btn" title="Cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge cart-count-badge" style="display:none">0</span>
+        </a>
+        <a href="login.html" class="nav-icon-btn" title="Account"><i class="fas fa-user"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-bg-image"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Premium Auto Parts Supplier
+          </div>
+          <h1 class="hero-title">
+            Drive With<br>
+            <span class="red">Confidence</span>,<br>
+            Build With Precision
+          </h1>
+          <p class="hero-desc">
+            India's leading distributor of Carbon Fibre components, Plastic Repair kits, performance Engine parts, and professional Brake systems. Quality guaranteed.
+          </p>
+          <div class="hero-actions">
+            <a href="products.html" class="btn-accent">
+              <i class="fas fa-th-large"></i> Shop Now
+            </a>
+            <a href="about.html" class="btn-ghost">
+              <i class="fas fa-play-circle"></i> Learn More
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-num">12<span>K+</span></div>
+              <div class="stat-label">Products</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">50<span>K+</span></div>
+              <div class="stat-label">Customers</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">14<span>+</span></div>
+              <div class="stat-label">Years Exp.</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">99<span>%</span></div>
+              <div class="stat-label">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+        <div class="hero-img-wrap">
+          <div class="hero-img-glow"></div>
+          <img class="hero-img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=560&fit=crop&q=85" alt="Premium Auto Parts" loading="eager"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section-pad categories-bg">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-chip"><i class="fas fa-layer-group"></i> Categories</div>
+      <h2 class="section-title">Shop By Category</h2>
+      <p class="section-sub mx-auto">Explore our curated range of automotive parts and accessories — engineered for performance.</p>
+    </div>
+    <div class="row gy-4">
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <a href="products.html?cat=Engine+Parts" class="text-decoration-none d-block">
+          <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop&q=80" alt="Engine Parts" loading="lazy"/>
+            <div class="category-info">
+              <div class="cat-icon"><i class="fas fa-cog"></i></div>
+              <div class="cat-name">Engine Parts</div>
+              <div class="cat-count">42 Products</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <a href="products.html?cat=Carbon+Fibre" class="text-decoration-none d-block">
+          <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&q=80" alt="Carbon Fibre" loading="lazy"/>
+            <div class="category-info">
+              <div class="cat-icon"><i class="fas fa-car"></i></div>
+              <div class="cat-name">Carbon Fibre</div>
+              <div class="cat-count">28 Products</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <a href="products.html?cat=Plastic+Repair" class="text-decoration-none d-block">
+          <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1504222490345-c075b7e72b6e?w=600&h=400&fit=crop&q=80" alt="Plastic Repair" loading="lazy"/>
+            <div class="category-info">
+              <div class="cat-icon"><i class="fas fa-tools"></i></div>
+              <div class="cat-name">Plastic Repair</div>
+              <div class="cat-count">35 Products</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <a href="products.html?cat=Brake+System" class="text-decoration-none d-block">
+          <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&h=400&fit=crop&q=80" alt="Brake System" loading="lazy"/>
+            <div class="category-info">
+              <div class="cat-icon"><i class="fas fa-circle-notch"></i></div>
+              <div class="cat-name">Brake System</div>
+              <div class="cat-count">19 Products</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="section-pad" style="background:var(--background)">
+  <div class="container">
+    <div class="d-flex align-items-end justify-content-between flex-wrap gap-3 mb-5" data-aos="fade-up">
+      <div>
+        <div class="section-chip"><i class="fas fa-fire"></i> Trending</div>
+        <h2 class="section-title mb-0">Featured Products</h2>
+      </div>
+      <a href="products.html" class="btn-ghost">View All <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="row" id="featured-products-grid">
+      <!-- Injected by app.js -->
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section-pad features-bg">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-chip"><i class="fas fa-shield-alt"></i> Why Us</div>
+      <h2 class="section-title">Why Choose AutoParts Pro</h2>
+      <p class="section-sub mx-auto">We deliver quality, speed, and reliability — every single order.</p>
+    </div>
+    <div class="row gy-4">
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+          <div class="feature-title">OEM & Aftermarket Quality</div>
+          <p class="feature-text">All parts are tested and certified. We stock only genuine OEM and premium aftermarket components.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-shipping-fast"></i></div>
+          <div class="feature-title">Express Delivery</div>
+          <p class="feature-text">Next-day delivery on most items across India. Secure packaging for sensitive automotive parts.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-undo-alt"></i></div>
+          <div class="feature-title">30-Day Returns</div>
+          <p class="feature-text">Hassle-free 30-day return policy. If you're not satisfied, we'll make it right.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-headset"></i></div>
+          <div class="feature-title">Expert Support</div>
+          <p class="feature-text">Our certified automotive experts are available Mon–Sat, 9 AM to 7 PM to help you choose the right part.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-pad" style="background:var(--background)">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-chip"><i class="fas fa-quote-left"></i> Reviews</div>
+      <h2 class="section-title">What Our Customers Say</h2>
+    </div>
+    <div class="row gy-4">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The Carbon Fibre hood I ordered fits perfectly on my BMW. Quality is exceptional — looks better than OEM. Will definitely order again!"</p>
+          <div class="testimonial-author">
+            <img class="author-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" alt="Rahul S."/>
+            <div>
+              <div class="author-name">Rahul Sharma</div>
+              <div class="author-role">BMW Enthusiast, Mumbai</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The plastic welding kit saved me ₹15,000 on a bumper repair. Easy to use and the results are professional. Highly recommend!"</p>
+          <div class="testimonial-author">
+            <img class="author-avatar" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&q=80" alt="Priya M."/>
+            <div>
+              <div class="author-name">Priya Mehta</div>
+              <div class="author-role">DIY Auto Enthusiast, Bangalore</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-card h-100">
+          <div class="testimonial-stars">★★★★☆</div>
+          <p class="testimonial-text">"Fast shipping, great packaging, and genuine parts. The ceramic brake pads are quieter and more responsive than the stock ones."</p>
+          <div class="testimonial-author">
+            <img class="author-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" alt="Arjun P."/>
+            <div>
+              <div class="author-name">Arjun Patel</div>
+              <div class="author-role">Workshop Owner, Pune</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section-pad-sm newsletter-bg">
+  <div class="container">
+    <div class="text-center" data-aos="fade-up">
+      <div class="section-chip"><i class="fas fa-envelope"></i> Newsletter</div>
+      <h2 class="section-title">Get Exclusive Deals</h2>
+      <p class="section-sub mx-auto mb-4">Subscribe for the latest offers, new arrivals, and automotive tips delivered to your inbox.</p>
+      <form id="newsletter-form" class="newsletter-form" novalidate>
+        <input class="newsletter-input" type="email" id="newsletter-email" placeholder="Enter your email address" required/>
+        <button type="submit" class="btn-accent"><i class="fas fa-paper-plane"></i> Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <div class="brand-icon"><i class="fas fa-bolt"></i></div>
+          Auto<span class="red">Parts Pro</span>
+        </div>
+        <p class="footer-desc">Your trusted partner for premium automotive parts. Specializing in Carbon Fibre, Plastic Repair, and Engine components since 2010.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right fa-xs"></i> Home</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right fa-xs"></i> Products</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right fa-xs"></i> About Us</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right fa-xs"></i> Contact</a></li>
+          <li><a href="cart.html"><i class="fas fa-chevron-right fa-xs"></i> My Cart</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Categories</div>
+        <ul class="footer-links">
+          <li><a href="products.html?cat=Carbon+Fibre"><i class="fas fa-chevron-right fa-xs"></i> Carbon Fibre</a></li>
+          <li><a href="products.html?cat=Plastic+Repair"><i class="fas fa-chevron-right fa-xs"></i> Plastic Repair</a></li>
+          <li><a href="products.html?cat=Engine+Parts"><i class="fas fa-chevron-right fa-xs"></i> Engine Parts</a></li>
+          <li><a href="products.html?cat=Brake+System"><i class="fas fa-chevron-right fa-xs"></i> Brake System</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-heading">Contact Info</div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="footer-contact-text">Plot 12, Industrial Estate, Pune, Maharashtra 411026</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><i class="fas fa-phone"></i></div>
+          <div class="footer-contact-text">+91 98765 43210<br><small>Mon–Sat: 9 AM – 7 PM</small></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+          <div class="footer-contact-text">support@autopartspro.in</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-text">© 2024 AutoParts Pro. All rights reserved.</div>
+      <div class="footer-bottom-text d-flex gap-3">
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Privacy Policy</a>
+        <a href="#" style="color:var(--text-muted);font-size:0.82rem">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scroll-top-btn"><i class="fas fa-chevron-up"></i></button>
+<div id="toast-container" class="toast-container"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

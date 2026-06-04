@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Complete your AutoParts Pro purchase with Card or UPI payment. Secure and fast checkout."/>
+  <title>Payment – AutoParts Pro</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    .card-input { letter-spacing: 3px; }
+    .processing-overlay {
+      position:fixed;inset:0;background:rgba(10,15,28,0.88);
+      display:flex;align-items:center;justify-content:center;
+      z-index:9999;backdrop-filter:blur(8px);
+      flex-direction:column;gap:20px;
+    }
+    .processing-ring { width:70px;height:70px;border:4px solid rgba(230,57,70,0.2);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite; }
+    .processing-text { color:var(--text-light);font-size:1rem;font-weight:600; }
+  </style>
+</head>
+<body>
+
+<div id="page-loader">
+  <div class="loader-inner"><div class="loader-ring"></div><div class="loader-logo">AutoParts Pro</div></div>
+</div>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="brand-icon"><i class="fas fa-bolt"></i></div>Auto<span class="brand-pro">Parts Pro</span>
+    </a>
+    <div class="nav-icons ms-auto">
+      <button class="nav-icon-btn" onclick="toggleTheme()"><i class="fas fa-sun theme-icon"></i></button>
+      <a href="cart.html" class="nav-icon-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge cart-count-badge" style="display:none">0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-title">Payment</div>
+    <nav class="breadcrumb-nav">
+      <a href="cart.html">Cart</a><span class="sep">/</span>
+      <a href="checkout.html">Checkout</a><span class="sep">/</span>
+      <span class="current">Payment</span>
+    </nav>
+  </div>
+</div>
+
+<section class="section-pad" style="background:var(--background)">
+  <div class="container">
+
+    <!-- PAYMENT SCREEN -->
+    <div id="payment-screen">
+
+      <!-- STEPS -->
+      <div class="checkout-steps mb-5">
+        <div class="cstep">
+          <div style="display:flex;flex-direction:column;align-items:center">
+            <div class="cstep-circle done"><i class="fas fa-check"></i></div>
+            <div class="cstep-label">Cart</div>
+          </div>
+          <div class="cstep-line"></div>
+        </div>
+        <div class="cstep">
+          <div style="display:flex;flex-direction:column;align-items:center">
+            <div class="cstep-circle done"><i class="fas fa-check"></i></div>
+            <div class="cstep-label">Shipping</div>
+          </div>
+          <div class="cstep-line"></div>
+        </div>
+        <div class="cstep">
+          <div style="display:flex;flex-direction:column;align-items:center">
+            <div class="cstep-circle done">3</div>
+            <div class="cstep-label">Payment</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row gy-5">
+        <!-- PAYMENT FORM -->
+        <div class="col-lg-7">
+          <div class="form-card">
+            <div class="form-section-title"><i class="fas fa-lock"></i> Secure Payment</div>
+
+            <!-- Payment Method Tabs -->
+            <div class="payment-methods mb-4">
+              <button class="pay-method-btn active" id="pm-card" onclick="switchPayMethod('card')">
+                <i class="fas fa-credit-card"></i> Card
+              </button>
+              <button class="pay-method-btn" id="pm-upi" onclick="switchPayMethod('upi')">
+                <i class="fas fa-qrcode"></i> UPI
+              </button>
+              <button class="pay-method-btn" id="pm-netbank" onclick="switchPayMethod('netbank')">
+                <i class="fas fa-university"></i> Net Banking
+              </button>
+              <button class="pay-method-btn" id="pm-cod" onclick="switchPayMethod('cod')">
+                <i class="fas fa-money-bill-wave"></i> Cash on Delivery
+              </button>
+            </div>
+
+            <!-- Card Form -->
+            <div id="card-form">
+              <!-- Card brand icons -->
+              <div style="display:flex;gap:12px;margin-bottom:18px;font-size:1.9rem;color:var(--text-muted)">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-amex" title="Amex"></i>
+                <i class="fab fa-cc-discover" title="Discover"></i>
+              </div>
+              <div class="form-group">
+                <label class="form-lbl" for="card-name">Cardholder Name *</label>
+                <input class="form-ctrl" type="text" id="card-name" placeholder="Name as on card" required/>
+                <div class="error-msg" id="card-name-err" style="display:none"></div>
+              </div>
+              <div class="form-group">
+                <label class="form-lbl" for="card-number">Card Number *</label>
+                <input class="form-ctrl card-input" type="text" id="card-number" placeholder="•••• •••• •••• ••••" maxlength="19" required/>
+                <div class="error-msg" id="card-number-err" style="display:none"></div>
+              </div>
+              <div class="row gy-3">
+                <div class="col-sm-6 form-group mb-0">
+                  <label class="form-lbl" for="card-expiry">Expiry Date *</label>
+                  <input class="form-ctrl" type="text" id="card-expiry" placeholder="MM / YY" maxlength="7" required/>
+                  <div class="error-msg" id="card-expiry-err" style="display:none"></div>
+                </div>
+                <div class="col-sm-6 form-group mb-0">
+                  <label class="form-lbl" for="card-cvv">CVV *</label>
+                  <div class="pw-wrap">
+                    <input class="form-ctrl" type="password" id="card-cvv" placeholder="•••" maxlength="4" required/>
+                    <button type="button" class="pw-toggle" onclick="togglePw('card-cvv',this)"><i class="fas fa-eye"></i></button>
+                  </div>
+                  <div class="error-msg" id="card-cvv-err" style="display:none"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- UPI Form -->
+            <div id="upi-form" style="display:none">
+              <div class="form-group">
+                <label class="form-lbl" for="upi-id">UPI ID *</label>
+                <input class="form-ctrl" type="text" id="upi-id" placeholder="yourname@upi"/>
+                <div class="error-msg" id="upi-id-err" style="display:none"></div>
+              </div>
+              <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px;text-align:center;margin-top:10px">
+                <i class="fas fa-qrcode" style="font-size:4rem;color:var(--text-muted);display:block;margin-bottom:10px"></i>
+                <div style="font-size:0.85rem;color:var(--text-muted)">Or scan QR code with your UPI app</div>
+              </div>
+            </div>
+
+            <!-- Net Banking -->
+            <div id="netbank-form" style="display:none">
+              <div class="form-group">
+                <label class="form-lbl" for="bank-select">Select Your Bank *</label>
+                <select class="form-ctrl" id="bank-select">
+                  <option value="">Choose bank...</option>
+                  <option>SBI</option><option>HDFC Bank</option><option>ICICI Bank</option>
+                  <option>Axis Bank</option><option>Kotak Mahindra</option><option>Punjab National Bank</option>
+                </select>
+                <div class="error-msg" id="bank-err" style="display:none"></div>
+              </div>
+            </div>
+
+            <!-- COD Form -->
+            <div id="cod-form" style="display:none">
+              <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:var(--radius-sm);padding:20px;text-align:center">
+                <i class="fas fa-money-bill-wave" style="font-size:2.5rem;color:#22c55e;margin-bottom:14px;display:block"></i>
+                <div style="font-size:0.95rem;color:var(--text-light);font-weight:600;margin-bottom:6px">Cash on Delivery Selected</div>
+                <div style="font-size:0.85rem;color:var(--text-muted)">Pay in cash when your order arrives. COD charges: ₹49</div>
+              </div>
+            </div>
+
+            <!-- Pay Button -->
+            <button class="btn-accent btn-full mt-4" id="pay-btn" onclick="processPayment()" style="font-size:1rem;padding:16px">
+              <i class="fas fa-lock"></i> Pay <span id="pay-amount">Now</span>
+            </button>
+
+            <div style="text-align:center;margin-top:12px;font-size:0.78rem;color:var(--text-muted)">
+              <i class="fas fa-shield-alt" style="color:#22c55e"></i> 256-bit SSL Encryption &nbsp;|&nbsp;
+              <i class="fas fa-lock" style="color:#22c55e"></i> PCI DSS Compliant
+            </div>
+          </div>
+        </div>
+
+        <!-- AMOUNT SUMMARY -->
+        <div class="col-lg-5">
+          <div class="order-summary mb-4" style="position:sticky;top:80px">
+            <h5 style="color:var(--text-light);font-weight:700;margin-bottom:16px">Payment Summary</h5>
+            <div class="summary-line"><span>Order Amount</span><span class="summary-val" id="pay-subtotal">—</span></div>
+            <div class="summary-line"><span>Shipping</span><span class="summary-val" id="pay-shipping">—</span></div>
+            <div class="summary-line"><span>GST (18%)</span><span class="summary-val" id="pay-gst">—</span></div>
+            <div class="summary-line grand"><span>Grand Total</span><span class="val" id="pay-total">—</span></div>
+
+            <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+              <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:6px">
+                <i class="fas fa-map-marker-alt" style="color:var(--accent)"></i>
+                Delivering to: <span id="pay-ship-name" style="color:var(--text-light)">—</span>
+              </div>
+              <div style="font-size:0.82rem;color:var(--text-muted)" id="pay-ship-address">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS SCREEN -->
+    <div id="success-screen" style="display:none">
+      <div class="form-card">
+        <div class="success-screen">
+          <div class="success-icon"><i class="fas fa-check"></i></div>
+          <h2 class="success-title">Payment Successful!</h2>
+          <p class="success-sub">Thank you for your order. We've received your payment and are preparing your shipment.</p>
+          <div class="order-ref"><i class="fas fa-receipt"></i> Order ID: <span id="order-id">APR-000000</span></div>
+          <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:32px">A confirmation email has been sent to your registered address.</div>
+          <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="index.html" class="btn-accent"><i class="fas fa-home"></i> Back to Home</a>
+            <a href="products.html" class="btn-ghost"><i class="fas fa-shopping-bag"></i> Continue Shopping</a>
+          </div>
+
+          <div style="margin-top:40px;padding:20px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.85rem;color:var(--text-muted)">
+            <div style="font-weight:700;color:var(--text-light);margin-bottom:8px"><i class="fas fa-shipping-fast" style="color:var(--accent);margin-right:8px"></i>Delivery Info</div>
+            Estimated delivery: <strong style="color:var(--text-light)">3–5 business days</strong><br>
+            Tracking number will be sent via SMS &amp; email once dispatched.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="toast-container" class="toast-container"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+let currentMethod = 'card';
+
+function switchPayMethod(method) {
+  currentMethod = method;
+  ['card','upi','netbank','cod'].forEach(m => {
+    document.getElementById(`${m}-form`).style.display = m === method ? '' : 'none';
+    document.getElementById(`pm-${m}`).classList.toggle('active', m === method);
+  });
+}
+
+function processPayment() {
+  if (!validatePayment()) return;
+
+  // Show processing overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'processing-overlay';
+  overlay.innerHTML = `<div class="processing-ring"></div><div class="processing-text">Processing payment…</div>`;
+  document.body.appendChild(overlay);
+
+  setTimeout(() => {
+    overlay.remove();
+    Cart.clear();
+    updateCartCount();
+
+    // Generate order ID
+    const orderId = 'APR-' + Math.random().toString(36).substring(2,8).toUpperCase();
+    document.getElementById('order-id').textContent = orderId;
+
+    document.getElementById('payment-screen').style.display = 'none';
+    document.getElementById('success-screen').style.display = '';
+
+    showToast('Payment successful! Order confirmed.', 'success');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 2800);
+}
+
+function validatePayment() {
+  const setErr = (id, msg) => { const el = document.getElementById(id); if (el) { el.textContent = msg; el.style.display = msg ? 'flex' : 'none'; } };
+  let valid = true;
+
+  if (currentMethod === 'card') {
+    const name = document.getElementById('card-name').value.trim();
+    const num  = document.getElementById('card-number').value.replace(/\s/g,'');
+    const exp  = document.getElementById('card-expiry').value.trim();
+    const cvv  = document.getElementById('card-cvv').value.trim();
+
+    if (name.length < 2) { setErr('card-name-err', 'Cardholder name required.'); valid = false; } else setErr('card-name-err','');
+    if (!/^\d{15,16}$/.test(num)) { setErr('card-number-err', 'Enter a valid 15–16 digit card number.'); valid = false; } else setErr('card-number-err','');
+    if (!/^(0[1-9]|1[0-2])\s*\/\s*\d{2}$/.test(exp)) { setErr('card-expiry-err', 'Enter expiry as MM/YY.'); valid = false; } else setErr('card-expiry-err','');
+    if (!/^\d{3,4}$/.test(cvv)) { setErr('card-cvv-err', 'Enter a valid CVV.'); valid = false; } else setErr('card-cvv-err','');
+  }
+
+  if (currentMethod === 'upi') {
+    const upi = document.getElementById('upi-id').value.trim();
+    if (!/^[\w.\-]{2,}@[a-z]{2,}$/.test(upi)) { setErr('upi-id-err', 'Enter a valid UPI ID (e.g. name@upi).'); valid = false; } else setErr('upi-id-err','');
+  }
+
+  if (currentMethod === 'netbank') {
+    const bank = document.getElementById('bank-select').value;
+    if (!bank) { setErr('bank-err', 'Please select your bank.'); valid = false; } else setErr('bank-err','');
+  }
+
+  return valid;
+}
+
+// Format card number input
+document.addEventListener('DOMContentLoaded', () => {
+  const cardNum = document.getElementById('card-number');
+  if (cardNum) {
+    cardNum.addEventListener('input', function() {
+      let val = this.value.replace(/\D/g,'').substring(0,16);
+      this.value = val.replace(/(.{4})/g,'$1 ').trim();
+    });
+  }
+  const expiry = document.getElementById('card-expiry');
+  if (expiry) {
+    expiry.addEventListener('input', function() {
+      let val = this.value.replace(/\D/g,'');
+      if (val.length >= 2) val = val.substring(0,2) + ' / ' + val.substring(2,4);
+      this.value = val;
+    });
+  }
+
+  // Load totals
+  document.getElementById('pay-subtotal').textContent = formatPrice(Cart.getSubtotal());
+  document.getElementById('pay-shipping').textContent  = Cart.getShipping() === 0 ? 'FREE' : formatPrice(Cart.getShipping());
+  document.getElementById('pay-gst').textContent       = formatPrice(Cart.getGST());
+  const total = Cart.getTotal();
+  document.getElementById('pay-total').textContent = formatPrice(total);
+  document.getElementById('pay-amount').textContent = formatPrice(total);
+
+  // Load shipping info
+  const ship = JSON.parse(localStorage.getItem('ap_shipping') || '{}');
+  if (ship.name) {
+    document.getElementById('pay-ship-name').textContent = ship.name;
+    document.getElementById('pay-ship-address').textContent = `${ship.address}, ${ship.city}, ${ship.state} – ${ship.zip}`;
+  }
+});
+</script>
+</body>
+</html>

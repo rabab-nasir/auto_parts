@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Checkout securely at AutoParts Pro. Enter your shipping details and proceed to payment."/>
+  <title>Checkout – AutoParts Pro</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+<div id="page-loader">
+  <div class="loader-inner"><div class="loader-ring"></div><div class="loader-logo">AutoParts Pro</div></div>
+</div>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="brand-icon"><i class="fas fa-bolt"></i></div>Auto<span class="brand-pro">Parts Pro</span>
+    </a>
+    <div class="nav-icons ms-auto">
+      <button class="nav-icon-btn" onclick="toggleTheme()"><i class="fas fa-sun theme-icon"></i></button>
+      <a href="cart.html" class="nav-icon-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge cart-count-badge" style="display:none">0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-title" data-aos="fade-right">Checkout</div>
+    <nav class="breadcrumb-nav">
+      <a href="index.html">Home</a><span class="sep">/</span>
+      <a href="cart.html">Cart</a><span class="sep">/</span>
+      <span class="current">Checkout</span>
+    </nav>
+  </div>
+</div>
+
+<section class="section-pad" style="background:var(--background)">
+  <div class="container">
+
+    <!-- STEPS -->
+    <div class="checkout-steps mb-5" data-aos="fade-up">
+      <div class="cstep">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="cstep-circle done"><i class="fas fa-check"></i></div>
+          <div class="cstep-label">Cart</div>
+        </div>
+        <div class="cstep-line"></div>
+      </div>
+      <div class="cstep">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="cstep-circle done">2</div>
+          <div class="cstep-label">Shipping</div>
+        </div>
+        <div class="cstep-line" style="background:var(--border)"></div>
+      </div>
+      <div class="cstep">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div class="cstep-circle inactive">3</div>
+          <div class="cstep-label">Payment</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row gy-5">
+      <!-- SHIPPING FORM -->
+      <div class="col-lg-7" data-aos="fade-right">
+        <form id="checkout-form" novalidate>
+          <!-- Contact -->
+          <div class="form-card mb-4">
+            <div class="form-section-title"><i class="fas fa-user-circle"></i> Contact Information</div>
+            <div class="row gy-3">
+              <div class="col-sm-6 form-group mb-0">
+                <label class="form-lbl" for="co-fname">First Name *</label>
+                <input class="form-ctrl" type="text" id="co-fname" placeholder="John" required/>
+                <div class="error-msg" id="co-fname-err" style="display:none"></div>
+              </div>
+              <div class="col-sm-6 form-group mb-0">
+                <label class="form-lbl" for="co-lname">Last Name *</label>
+                <input class="form-ctrl" type="text" id="co-lname" placeholder="Doe" required/>
+                <div class="error-msg" id="co-lname-err" style="display:none"></div>
+              </div>
+              <div class="col-sm-6 form-group mb-0">
+                <label class="form-lbl" for="co-email">Email *</label>
+                <input class="form-ctrl" type="email" id="co-email" placeholder="you@example.com" required/>
+                <div class="error-msg" id="co-email-err" style="display:none"></div>
+              </div>
+              <div class="col-sm-6 form-group mb-0">
+                <label class="form-lbl" for="co-phone">Phone *</label>
+                <input class="form-ctrl" type="tel" id="co-phone" placeholder="10-digit mobile" required/>
+                <div class="error-msg" id="co-phone-err" style="display:none"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping Address -->
+          <div class="form-card mb-4">
+            <div class="form-section-title"><i class="fas fa-map-marker-alt"></i> Shipping Address</div>
+            <div class="row gy-3">
+              <div class="col-12 form-group mb-0">
+                <label class="form-lbl" for="co-address">Street Address *</label>
+                <input class="form-ctrl" type="text" id="co-address" placeholder="123, Street Name, Area" required/>
+                <div class="error-msg" id="co-address-err" style="display:none"></div>
+              </div>
+              <div class="col-sm-6 form-group mb-0">
+                <label class="form-lbl" for="co-city">City *</label>
+                <input class="form-ctrl" type="text" id="co-city" placeholder="Mumbai" required/>
+                <div class="error-msg" id="co-city-err" style="display:none"></div>
+              </div>
+              <div class="col-sm-6 form-group mb-0">
+                <label class="form-lbl" for="co-state">State *</label>
+                <select class="form-ctrl" id="co-state" required>
+                  <option value="">Select State</option>
+                  <option>Maharashtra</option><option>Karnataka</option><option>Tamil Nadu</option>
+                  <option>Delhi</option><option>Gujarat</option><option>Rajasthan</option>
+                  <option>West Bengal</option><option>Telangana</option><option>Kerala</option>
+                  <option>Punjab</option>
+                </select>
+                <div class="error-msg" id="co-state-err" style="display:none"></div>
+              </div>
+              <div class="col-sm-6 form-group mb-0">
+                <label class="form-lbl" for="co-zip">PIN Code *</label>
+                <input class="form-ctrl" type="text" id="co-zip" placeholder="400001" maxlength="6" required/>
+                <div class="error-msg" id="co-zip-err" style="display:none"></div>
+              </div>
+              <div class="col-sm-6 form-group mb-0">
+                <label class="form-lbl" for="co-country">Country</label>
+                <input class="form-ctrl" type="text" id="co-country" value="India" readonly/>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delivery Note -->
+          <div class="form-card mb-4">
+            <div class="form-section-title"><i class="fas fa-sticky-note"></i> Delivery Note (Optional)</div>
+            <textarea class="form-ctrl" id="co-note" placeholder="Special instructions for delivery…" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn-accent btn-full" style="font-size:1rem;padding:16px">
+            <i class="fas fa-lock"></i> Proceed to Payment
+          </button>
+        </form>
+      </div>
+
+      <!-- ORDER SUMMARY -->
+      <div class="col-lg-5" data-aos="fade-left">
+        <div class="order-summary" style="position:sticky;top:80px">
+          <h5 style="color:var(--text-light);font-weight:700;margin-bottom:18px">Order Summary</h5>
+          <div id="checkout-order-items"><!-- populated by cart.js --></div>
+          <div style="border-top:1px solid var(--border);margin-top:14px;padding-top:10px">
+            <div class="summary-line"><span>Subtotal</span><span class="summary-val" id="co-subtotal">—</span></div>
+            <div class="summary-line"><span>Shipping</span><span class="summary-val" id="co-shipping">—</span></div>
+            <div class="summary-line"><span>GST (18%)</span><span class="summary-val" id="co-gst">—</span></div>
+            <div class="summary-line grand"><span>Total</span><span class="val" id="co-total">—</span></div>
+          </div>
+          <!-- Trust badges -->
+          <div style="display:flex;gap:12px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+            <div style="text-align:center;flex:1;font-size:0.78rem;color:var(--text-muted)">
+              <i class="fas fa-lock" style="color:var(--accent);display:block;font-size:1.2rem;margin-bottom:4px"></i>Secure Payment
+            </div>
+            <div style="text-align:center;flex:1;font-size:0.78rem;color:var(--text-muted)">
+              <i class="fas fa-undo" style="color:var(--accent);display:block;font-size:1.2rem;margin-bottom:4px"></i>30-Day Return
+            </div>
+            <div style="text-align:center;flex:1;font-size:0.78rem;color:var(--text-muted)">
+              <i class="fas fa-shipping-fast" style="color:var(--accent);display:block;font-size:1.2rem;margin-bottom:4px"></i>Fast Delivery
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="toast-container" class="toast-container"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+function validateCheckout() {
+  const get = id => document.getElementById(id);
+  const setErr = (id, msg) => { const el = get(id); if (el) { el.textContent = msg; el.style.display = msg ? 'flex' : 'none'; } };
+  let valid = true;
+
+  const fields = [
+    { id: 'co-fname', errId: 'co-fname-err', label: 'First name', min: 2 },
+    { id: 'co-lname', errId: 'co-lname-err', label: 'Last name',  min: 2 },
+    { id: 'co-address', errId: 'co-address-err', label: 'Address', min: 6 },
+    { id: 'co-city', errId: 'co-city-err',  label: 'City', min: 2 },
+  ];
+
+  fields.forEach(f => {
+    const val = get(f.id)?.value.trim();
+    if (!val || val.length < f.min) { setErr(f.errId, `${f.label} is required.`); valid = false; }
+    else setErr(f.errId, '');
+  });
+
+  const email = get('co-email')?.value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setErr('co-email-err', 'Valid email required.'); valid = false; }
+  else setErr('co-email-err', '');
+
+  const phone = get('co-phone')?.value.trim();
+  if (!/^[6-9]\d{9}$/.test(phone)) { setErr('co-phone-err', 'Valid 10-digit phone required.'); valid = false; }
+  else setErr('co-phone-err', '');
+
+  const state = get('co-state')?.value;
+  if (!state) { setErr('co-state-err', 'Please select a state.'); valid = false; }
+  else setErr('co-state-err', '');
+
+  const zip = get('co-zip')?.value.trim();
+  if (!/^\d{6}$/.test(zip)) { setErr('co-zip-err', 'Valid 6-digit PIN code required.'); valid = false; }
+  else setErr('co-zip-err', '');
+
+  return valid;
+}
+
+document.getElementById('checkout-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (validateCheckout()) {
+    showToast('Shipping details saved! Redirecting…', 'success');
+    // Save shipping details
+    const shipping = {
+      name: `${document.getElementById('co-fname').value} ${document.getElementById('co-lname').value}`,
+      email: document.getElementById('co-email').value,
+      phone: document.getElementById('co-phone').value,
+      address: document.getElementById('co-address').value,
+      city: document.getElementById('co-city').value,
+      state: document.getElementById('co-state').value,
+      zip: document.getElementById('co-zip').value,
+    };
+    localStorage.setItem('ap_shipping', JSON.stringify(shipping));
+    setTimeout(() => window.location.href = 'payment.html', 1000);
+  } else {
+    showToast('Please fix the errors above.', 'error');
+  }
+});
+</script>
+</body>
+</html>
