@@ -7,15 +7,15 @@
 /* ---- Product Data ---- */
 const PRODUCTS = [
   { id: 1,  name: "Carbon Fibre Hood",         category: "Carbon Fibre",   price: 12000, rating: 4.8, reviews: 124, badge: "Hot",      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=480&h=340&fit=crop&q=80" },
-  { id: 2,  name: "Plastic Welding Kit",        category: "Plastic Repair", price: 2500,  rating: 4.5, reviews: 89,  badge: "Popular",  image: "https://images.unsplash.com/photo-1504222490345-c075b7e72b6e?w=480&h=340&fit=crop&q=80" },
+  { id: 2,  name: "Plastic Welding Kit",        category: "Plastic Repair", price: 2500,  rating: 4.5, reviews: 89,  badge: "Popular",  image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=480&h=340&fit=crop&q=80" },
   { id: 3,  name: "Performance Engine Filter",  category: "Engine Parts",   price: 800,   rating: 4.7, reviews: 256, badge: "Sale",     image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=480&h=340&fit=crop&q=80" },
   { id: 4,  name: "Vented Brake Disc Set",      category: "Brake System",   price: 3000,  rating: 4.6, reviews: 178, badge: "New",      image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=480&h=340&fit=crop&q=80" },
-  { id: 5,  name: "Carbon Fibre Spoiler",       category: "Carbon Fibre",   price: 8500,  rating: 4.9, reviews: 67,  badge: "Premium",  image: "https://images.unsplash.com/photo-1541443131876-80664ac88af4?w=480&h=340&fit=crop&q=80" },
-  { id: 6,  name: "Bumper Repair Adhesive",     category: "Plastic Repair", price: 1200,  rating: 4.4, reviews: 145, badge: "",         image: "https://images.unsplash.com/photo-1617469767012-ce256f4e6e5c?w=480&h=340&fit=crop&q=80" },
+  { id: 5,  name: "Carbon Fibre Spoiler",       category: "Carbon Fibre",   price: 8500,  rating: 4.9, reviews: 67,  badge: "Premium",  image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=480&h=340&fit=crop&q=80" },
+  { id: 6,  name: "Bumper Repair Adhesive",     category: "Plastic Repair", price: 1200,  rating: 4.4, reviews: 145, badge: "",         image: "https://images.unsplash.com/photo-1534224039826-c7a0eda0e6b3?w=480&h=340&fit=crop&q=80" },
   { id: 7,  name: "Turbo Intercooler Kit",      category: "Engine Parts",   price: 15500, rating: 4.8, reviews: 43,  badge: "Hot",      image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=480&h=340&fit=crop&q=80" },
   { id: 8,  name: "Ceramic Brake Pads",         category: "Brake System",   price: 1800,  rating: 4.7, reviews: 210, badge: "",         image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=480&h=340&fit=crop&q=80" },
   { id: 9,  name: "Carbon Fibre Side Skirts",   category: "Carbon Fibre",   price: 9800,  rating: 4.6, reviews: 38,  badge: "Premium",  image: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=480&h=340&fit=crop&q=80" },
-  { id: 10, name: "Plastic Trim Restorer Kit",  category: "Plastic Repair", price: 650,   rating: 4.3, reviews: 312, badge: "Sale",     image: "https://images.unsplash.com/photo-1607603750909-408681b90bcc?w=480&h=340&fit=crop&q=80" },
+  { id: 10, name: "Plastic Trim Restorer Kit",  category: "Plastic Repair", price: 650,   rating: 4.3, reviews: 312, badge: "Sale",     image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=480&h=340&fit=crop&q=80" },
   { id: 11, name: "High-Flow Air Filter",       category: "Engine Parts",   price: 1400,  rating: 4.5, reviews: 189, badge: "",         image: "https://images.unsplash.com/photo-1526726538690-5cbf956ae2fd?w=480&h=340&fit=crop&q=80" },
   { id: 12, name: "Stainless Brake Lines",      category: "Brake System",   price: 2200,  rating: 4.6, reviews: 77,  badge: "New",      image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=480&h=340&fit=crop&q=80" },
 ];
